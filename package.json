@@ -1,0 +1,56 @@
+{
+  "name": "paste-stack",
+  "displayName": "paste stack",
+  "description": "paste the stack info from clipboard remove first and last quoto, replace \\\\n and \\\\t with \\n \\t",
+  "version": "0.0.2",
+  "keywords": [
+    "log",
+    "format"
+  ],
+  "engines": {
+    "vscode": "^1.58.0"
+  },
+  "publisher": "seastar1997",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.paste-stack"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.paste-stack",
+        "title": "Paster Stack"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.paste-stack",
+        "key": "ctrl+shift+v",
+        "mac": "ctrl+shift+v",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.58.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}
